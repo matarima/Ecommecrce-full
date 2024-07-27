@@ -1,0 +1,31 @@
+.product-item {
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+  
+  .product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .product-item h5 {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  
+  .product-item .price {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  

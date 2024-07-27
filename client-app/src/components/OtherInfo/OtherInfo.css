@@ -1,0 +1,22 @@
+.other-info .subscribe-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .other-info .subscribe-box input {
+    max-width: 300px;
+    margin-right: 10px;
+  }
+  
+  .other-info .subscribe-box button {
+    padding: 8px 20px;
+  }
+  
+  .other-info .row > div {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  

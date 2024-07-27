@@ -1,0 +1,53 @@
+/* CartPage.css */
+.container {
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.btn-link {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.btn-link:hover {
+  color: #000;
+}
+
+.cart-total {
+  border: 1px solid #e1e1e1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cart-total p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-total input {
+  width: 100%;
+}
+
+.cart-total button {
+  width: 100%;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+
+.quantity-control button {
+  padding: 5px 10px;
+}

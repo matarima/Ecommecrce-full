@@ -1,0 +1,45 @@
+/* styles.css */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../assets/banner1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.form-style {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+.title {
+  font-family: "Arial", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.btn-block {
+  background-color: #343a40;
+  color: white;
+}
+
+.btn-block:hover {
+  background-color: #23272b;
+}
