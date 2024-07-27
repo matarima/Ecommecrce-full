@@ -1,0 +1,111 @@
+.admin-chat {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-sidebar {
+  width: 300px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.chat-sidebar h4 {
+  margin-bottom: 15px;
+}
+
+.room-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.room:hover {
+  background-color: #e0e0e0;
+}
+
+.room.active {
+  background-color: #d0d0d0;
+}
+
+.room img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.chat-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message.admin {
+  justify-content: flex-start;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.message.user .message-icon {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+}
+
+.input-group input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.input-group-append {
+  margin-left: 10px;
+}
+
+.input-group-append button {
+  padding: 10px 20px;
+}
+
+.no-active-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+  color: #888;
+}

@@ -1,0 +1,17 @@
+.contairner {
+  display: flex;
+}
+.product-image {
+  width: 50px;
+  height: auto;
+}
+
+.btn {
+  margin-left: 10px;
+}
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 150px;
+  width: calc(100% - 200px);
+}
