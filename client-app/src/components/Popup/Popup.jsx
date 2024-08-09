@@ -16,7 +16,7 @@ function Popup() {
           &times;
         </button>
         <div className="popup-body">
-          <img src={product.img1} alt={product.name} className="popup-image" />
+          <img src={`https://backend-ecommecre.onrender.com${product.img1}`} alt={product.name} className="popup-image" />
           <div className="popup-details">
             <h3>{product.name}</h3>
             <p>
