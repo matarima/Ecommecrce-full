@@ -12,7 +12,9 @@ const LiveChat = () => {
   ]);
   const [newMessage, setNewMessage] = useState("");
   const [roomId, setRoomId] = useState(localStorage.getItem("roomId") || "");
-  const [sessionId, setSessionId] = useState(localStorage.getItem("sessionId") || "");
+  const [sessionId, setSessionId] = useState(
+    localStorage.getItem("sessionId") || ""
+  );
 
   useEffect(() => {
     if (user) {
