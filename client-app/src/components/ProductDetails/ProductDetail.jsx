@@ -72,7 +72,7 @@ const ProductDetail = () => {
     <div className="product-detail container mt-5">
       <div className="row">
         <div className="col-md-6">
-          <img src={product.img1} alt={product.name} className="img-fluid" />
+          <img src={`https://backend-ecommecre.onrender.com${product.img1}`} alt={product.name} className="img-fluid" />
         </div>
         <div className="col-md-6">
           <h2>{product.name}</h2>
@@ -117,7 +117,7 @@ const ProductDetail = () => {
                 onClick={() => handleProductClick(relatedProduct._id)}
               >
                 <img
-                  src={relatedProduct.img1}
+                  src={`https://backend-ecommecre.onrender.com${relatedProduct.img1}`}
                   alt={relatedProduct.name}
                   className="img-fluid"
                 />
