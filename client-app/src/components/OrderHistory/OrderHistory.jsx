@@ -85,7 +85,7 @@ const OrderHistory = () => {
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>
-                    <img src={product.img1} alt={product.name} className="order-image" />
+                    <img src={`https://backend-ecommecre.onrender.com${product.img1}`} alt={product.name} className="order-image" />
                   </td>
                   <td>{product.name}</td>
                   <td>{product.price.toLocaleString()} VND</td>
