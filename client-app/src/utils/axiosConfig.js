@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'https://backend-ecommecre.onrender.com/api',
     withCredentials: true // Để gửi cookie kèm theo request
 });
 
