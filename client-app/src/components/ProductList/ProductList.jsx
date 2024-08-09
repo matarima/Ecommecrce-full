@@ -36,7 +36,7 @@ function ProductList({ category }) {
         {filteredProducts.map((product) => (
           <div key={product._id} className="col-md-3 mb-4">
             <div className="card h-100 product-card" onClick={() => handleProductClick(product._id)}>
-              <img src={product.img1} alt={product.name} className="card-img-top product-image" />
+              <img src=`https://backend-ecommecre.onrender.com${product.img1}` alt={product.name} className="card-img-top product-image" />
               <div className="card-body">
                 <h5 >{product.name}</h5>
                 <p className="card-text">{Number(product.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
