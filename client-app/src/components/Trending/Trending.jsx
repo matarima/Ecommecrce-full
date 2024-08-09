@@ -34,7 +34,7 @@ function Trending() {
           <div className="col-md-3 mb-4" key={product._id}>
             <div className="product-item">
               <img
-                src={product.img1}
+                src={`https://backend-ecommecre.onrender.com${product.img1}`}
                 alt={product.name}
                 className="img-fluid"
                 onClick={() => handleImageClick(product)}
