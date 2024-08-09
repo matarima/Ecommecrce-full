@@ -96,7 +96,7 @@ function ProductList() {
               <td>{product.price.toLocaleString()}</td>
               <td>
                 <img
-                  src={product.img1}
+                  src={`https://backend-ecommecre.onrender.com${product.img1}`}
                   alt={product.name}
                   className="product-image"
                 />
