@@ -15,27 +15,35 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;
     }
-
+  
     try {
-      const response = await axios.post("/auth/login", {email, password});
+      const response = await axios.post("/auth/login", { email, password });
       const token = response.data.token; // Lấy token từ phản hồi
       const user = response.data.user;
+      
       if (user.role !== "admin" && user.role !== "consultant") {
         setError("Unauthorized access.");
         return;
       }
+  
       localStorage.setItem("token", token); // Lưu token vào localStorage
-      login(response.data.user);
-      navigate("/dashboard");
+      login(user);
+  
+      if (user.role === "consultant") {
+        navigate("/admin-chat"); // Điều hướng consultant đến /admin-chat
+      } else {
+        navigate("/dashboard"); // Điều hướng admin đến /dashboard
+      }
     } catch (error) {
       setError("Invalid email or password.");
     }
   };
+  
   return (
     <div className="image-container">
       <div className="container mt-5">

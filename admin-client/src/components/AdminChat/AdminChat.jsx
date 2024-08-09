@@ -5,85 +5,95 @@ import "./AdminChat.css";
 
 const AdminChat = () => {
   const { user } = useContext(UserContext);
-  const [activeRoom, setActiveRoom] = useState(null);
   const [rooms, setRooms] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
 
   useEffect(() => {
-    if (user && user.role === "admin") {
+    if (user) {
+      socket.emit("getRooms");
+
       const handleRooms = (rooms) => {
         setRooms(rooms);
       };
 
       const handleMessage = (message) => {
-        setMessages((prevMessages) => [...prevMessages, message]);
+        if (selectedRoom && message.sessionId === selectedRoom._id) {
+          setMessages((prevMessages) => [...prevMessages, message]);
+        }
       };
 
       socket.on("rooms", handleRooms);
       socket.on("message", handleMessage);
-
-      socket.emit("getRooms");
 
       return () => {
         socket.off("rooms", handleRooms);
         socket.off("message", handleMessage);
       };
     }
-  }, [user]);
+  }, [user, selectedRoom]);
 
   const handleRoomClick = (room) => {
-    setActiveRoom(room);
+    setSelectedRoom(room);
     setMessages(room.messages);
-    socket.emit("joinRoom", { roomId: room.roomId, userId: user._id });
   };
 
   const handleSendMessage = () => {
-    if (newMessage.trim() !== "") {
-      const message = { sender: "ADMIN", text: newMessage, sessionId: activeRoom.sessionId };
-      socket.emit("sendMessage", { roomId: activeRoom.roomId, message });
-      setMessages([...messages, message]);
+    if (newMessage.trim() !== "" && selectedRoom) {
+      const message = { sender: "ADMIN", text: newMessage, sessionId: selectedRoom._id };
+      socket.emit("sendMessage", { roomId: selectedRoom.roomId, message });
+      setMessages([...messages, message]); 
       setNewMessage("");
     }
+  };
+
+  const Image = {
+    admin: require("../../assets/admin.png"),
+    user: require("../../assets/man.png"),
   };
 
   return (
     <div className="admin-chat">
       <div className="chat-sidebar">
-        <h4>Active Chats</h4>
+        <h3>Active Chats</h3>
         <div className="room-list">
           {rooms.map((room) => (
             <div
               key={room.roomId}
-              className={`room ${room.roomId === activeRoom?.roomId ? "active" : ""}`}
+              className={`room ${room.roomId === selectedRoom?.roomId ? "active" : ""}`}
               onClick={() => handleRoomClick(room)}
             >
-              <img src={require("../../assets/man.png")} alt="User Icon" />
+              <img src={Image.user} alt="User Icon" />
               <span>{room.roomId}</span>
             </div>
           ))}
         </div>
       </div>
       <div className="chat-main">
-        {activeRoom ? (
+        {selectedRoom ? (
           <>
             <div className="messages">
               {messages.map((message, index) => (
-                <div key={index} className={`message ${message.sender.toLowerCase()}`}>
+                <div
+                  key={index}
+                  className={`message ${message.sender.toLowerCase()}`}
+                >
                   {message.sender === "ADMIN" ? (
                     <img
-                      src={require("../../assets/admin.png")}
-                      alt="Admin Icon"
+                      src={Image.admin}
+                      alt="icon"
                       className="message-icon"
                     />
-                  ) : (
+                  ) : null}
+                  <span>{message.text}</span>
+                  {message.sender === "USER" ? (
                     <img
-                      src={require("../../assets/man.png")}
-                      alt="User Icon"
+                      src={Image.user}
+                      alt="icon"
                       className="message-icon user-icon"
                     />
-                  )}
-                  <span>{message.text}</span>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -98,7 +108,7 @@ const AdminChat = () => {
               />
               <div className="input-group-append">
                 <button className="btn btn-primary" onClick={handleSendMessage}>
-                  <i className="fas fa-paper-plane"></i>
+                  <i className="fas fa-paper-plane"></i> Send
                 </button>
               </div>
             </div>

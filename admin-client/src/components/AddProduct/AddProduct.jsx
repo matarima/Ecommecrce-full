@@ -55,6 +55,7 @@ function AddProduct() {
           "Content-Type": "multipart/form-data",
         },
       });
+      navigate("/products");
       setMessage(response.data.message);
     } catch (error) {
       setMessage(error.response.data.message);
