@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const chatRoomSchema = new mongoose.Schema({
   roomId: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
   messages: [
     {

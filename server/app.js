@@ -5,6 +5,8 @@ const socketIo = require("socket.io");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const multer = require('multer');
+const path = require("path");
 
 const authRoutes = require("./routes/auth");
 const productRoutes = require("./routes/products");
@@ -29,7 +31,9 @@ const corsOptions = {
   origin: ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true
 };
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 

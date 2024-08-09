@@ -62,7 +62,7 @@ exports.postProduct = async (req, res) => {
       });
   }
 
-  const images = files.map((file) => `/uploads/${file.filename}`);
+  const images = files.map((file) => `/images/${file.filename}`);
 
   try {
     const newProduct = new Product({
@@ -100,7 +100,7 @@ exports.updateProduct = async (req, res) => {
     const {name, category, price, short_desc, long_desc, count } = req.body;
     const files = req.files;
     
-    const images = files.map(file => `/uploads/${file.filename}`);
+    const images = files.map(file => `/images/${file.filename}`);
 
     try {
         const product = await Product.findById(req.params.id);
