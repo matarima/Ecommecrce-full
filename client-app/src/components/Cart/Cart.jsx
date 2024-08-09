@@ -86,7 +86,7 @@ const Cart = () => {
                 <tr key={item._id}>
                   <td>
                     <img
-                      src={item.img1}
+                      src={`https://backend-ecommecre.onrender.com${item.img1}`}
                       alt={item.name}
                       style={{ width: "50px" }}
                     />
